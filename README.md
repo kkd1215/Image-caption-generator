@@ -38,5 +38,22 @@ LSTM stands for Long short term memory, they are a type of RNN (recurrent neural
 
 So, to make our image caption generator model, we will be merging these architectures. It is also called a __CNN-RNN model__.
 
-CNN is used for extracting features from the image. We will use the pre-trained model Xception.
-LSTM will use the information from CNN to help generate a description of the image.
+__CNN__ is used for extracting features from the image. We will use the pre-trained model __Xception.
+
+    Xception is a convolutional neural network that is 71 layers deep. You can load a pretrained version of the network trained on more than a million images from the ImageNet database. The pretrained network can classify images into 1000 object categories, such as keyboard, mouse, pencil, and many animals. As a result, the network has learned rich feature representations for a wide range of images
+
+__LSTM__ will use the information from CNN to help generate a description of the image.
+
+# Data Cleaning 
+
+We will define 5 functions:
+
+__load_doc( filename )__ – For loading the document file and reading the contents inside the file into a string.
+
+__all_img_captions( filename )__ – This function will create a descriptions dictionary that maps images with a list of 5 captions.
+
+__cleaning_text( descriptions)__ – This function takes all descriptions and performs data cleaning. This is an important step when we work with textual data, according to our goal, we decide what type of cleaning we want to perform on the text. In our case, we will be removing punctuations, converting all text to lowercase and removing words that contain numbers.
+
+__text_vocabulary( descriptions )__ – This is a simple function that will separate all the unique words and create the vocabulary from all the descriptions.
+
+__save_descriptions( descriptions, filename )__ – This function will create a list of all the descriptions that have been preprocessed and store them into a file. We will create a descriptions.txt file to store all the captions. 
